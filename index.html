@@ -227,59 +227,58 @@ h1{
 
 <script>
 (function(w, d){
-	w.onload = function(){
-		var $ = function(id){return d.getElementById(id)},
-			$script = function(url, fnName, fn){
-				var s = 'script',
-					s1 = d.createElement(s),
-					s2 = d.getElementsByTagName(s)[0];
-				w[fnName] = function(){
-					fn.apply(this, arguments);
-					s1.parentNode.removeChild(s1);
-					delete w[fnName];
-				};
-				s1.src = url;
-				s2.parentNode.insertBefore(s1, s2);
-			},
-			$date = function(s){
-				// http://www.evotech.net/blog/2007/07/javascript-date-object/
-				var d = s.replace(/\D/g, ' ').split(' ');
-				return new Date(d[0], d[1]-1, d[2], d[3], d[4], d[5]);
-			},
-			yqlPath = 'http://query.yahooapis.com/v1/public/yql?format=json&_maxage=86400&',
-			eventsList = $('events-list'),
-			eventsSource = 'https://www.google.com/calendar/feeds/vjf62q7llp8mktsold1m5dmh9g%40group.calendar.google.com/public/full-noattendees?orderby=starttime&sortorder=a&futureevents=true&alt=jsonc',
-			eventsYQL = "select title,details,alternateLink, when from json where url='" + eventsSource + "' and itemPath='json.data.items' limit 5",
-			eventsURL = yqlPath + 'q=' + encodeURIComponent(eventsYQL) + '&callback=loadEvents',
-			headlinesList = $('headlines-list'),
-			headlinesSource = 'http://feedstitch.com/cheeaun/connectionsmy.rss',
-			headlinesYQL = "select title,link from feed where url='" + headlinesSource + "' limit 10",
-			headlinesURL = yqlPath + 'q=' + encodeURIComponent(headlinesYQL) + '&callback=loadHeadlines';
-		
-		$script(eventsURL, 'loadEvents', function(q){
-			if (!q || !q.query || !q.query.count) return;
-			var html = '';
-			for (var i=0, item = q.query.results.items, l=item.length; i<l; i++){
-				var it = item[i],
-					link = (it.details.match(/http:\/\/[^\s]*/i) || [it.alternateLink || '#'])[0],
-					when = it.when,
-					start = $date(when.start).toDateString(),
-					end = $date(when.end).toDateString(),
-					date = start + ((start != end) ? ' - ' + end : '');
-				html += '<li><a href="' + link + '"><time>' + date + '</time> ' + it.title + '</a></li>';
-			}
-			eventsList.innerHTML = html;
-		});
-		
-		$script(headlinesURL, 'loadHeadlines', function(q){
-			if (!q || !q.query || !q.query.count) return;
-			var html = '';
-			for (var i=0, item = q.query.results.item, l=item.length; i<l; i++){
-				var it = item[i];
-				html += '<li><a href="' + it.link + '">' + it.title + '</a></li>';
-			}
-			headlinesList.innerHTML = html;
-		});
-	};
+	var $ = function(id){return d.getElementById(id)},
+		$script = function(url, fnName, fn){
+			var s = 'script',
+				s1 = d.createElement(s),
+				s2 = d.getElementsByTagName(s)[0];
+			w[fnName] = function(){
+				fn.apply(this, arguments);
+				s1.parentNode.removeChild(s1);
+				delete w[fnName];
+			};
+			s1.async = 1;
+			s1.src = url;
+			s2.parentNode.insertBefore(s1, s2);
+		},
+		$date = function(s){
+			// http://www.evotech.net/blog/2007/07/javascript-date-object/
+			var d = s.replace(/\D/g, ' ').split(' ');
+			return new Date(d[0], d[1]-1, d[2], d[3], d[4], d[5]);
+		},
+		yqlPath = 'http://query.yahooapis.com/v1/public/yql?format=json&_maxage=86400&',
+		eventsList = $('events-list'),
+		eventsSource = 'https://www.google.com/calendar/feeds/vjf62q7llp8mktsold1m5dmh9g%40group.calendar.google.com/public/full-noattendees?orderby=starttime&sortorder=a&futureevents=true&alt=jsonc',
+		eventsYQL = "select title,details,alternateLink, when from json where url='" + eventsSource + "' and itemPath='json.data.items' limit 5",
+		eventsURL = yqlPath + 'q=' + encodeURIComponent(eventsYQL) + '&callback=loadEvents',
+		headlinesList = $('headlines-list'),
+		headlinesSource = 'http://feedstitch.com/cheeaun/connectionsmy.rss',
+		headlinesYQL = "select title,link from feed where url='" + headlinesSource + "' limit 10",
+		headlinesURL = yqlPath + 'q=' + encodeURIComponent(headlinesYQL) + '&callback=loadHeadlines';
+	
+	$script(eventsURL, 'loadEvents', function(q){
+		if (!q || !q.query || !q.query.count) return;
+		var html = '';
+		for (var i=0, item = q.query.results.items, l=item.length; i<l; i++){
+			var it = item[i],
+				link = (it.details.match(/http:\/\/[^\s]*/i) || [it.alternateLink || '#'])[0],
+				when = it.when,
+				start = $date(when.start).toDateString(),
+				end = $date(when.end).toDateString(),
+				date = start + ((start != end) ? ' - ' + end : '');
+			html += '<li><a href="' + link + '"><time>' + date + '</time> ' + it.title + '</a></li>';
+		}
+		eventsList.innerHTML = html;
+	});
+	
+	$script(headlinesURL, 'loadHeadlines', function(q){
+		if (!q || !q.query || !q.query.count) return;
+		var html = '';
+		for (var i=0, item = q.query.results.item, l=item.length; i<l; i++){
+			var it = item[i];
+			html += '<li><a href="' + it.link + '">' + it.title + '</a></li>';
+		}
+		headlinesList.innerHTML = html;
+	});
 }(window, document));
 </script>
