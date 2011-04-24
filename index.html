@@ -228,8 +228,8 @@ h1{
 (function(w, d){
 	var $ = function(id){return d.getElementById(id)},
 		$insert = function(el){
-			var head = document.head || document.getElementsByTagName('head')[0];
-			head.insertBefore(el, head.firstChild);
+			var h = d.head || d.getElementsByTagName('head')[0];
+			h.insertBefore(el, h.firstChild);
 		},
 		$script = function(url, fnName, fn){
 			var s = d.createElement('script');
