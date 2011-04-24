@@ -2,7 +2,6 @@
 <title>connections.my</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width; initial-scale=1">
-<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Amaranth">
 <style>
 body{
 	font-family: 'Amaranth', 'Trebuchet MS', arial, serif;
@@ -228,18 +227,20 @@ h1{
 <script>
 (function(w, d){
 	var $ = function(id){return d.getElementById(id)},
+		$insert = function(el){
+			var head = document.head || document.getElementsByTagName('head')[0];
+			head.insertBefore(el, head.firstChild);
+		},
 		$script = function(url, fnName, fn){
-			var s = 'script',
-				s1 = d.createElement(s),
-				s2 = d.getElementsByTagName(s)[0];
+			var s = d.createElement('script');
 			w[fnName] = function(){
 				fn.apply(this, arguments);
-				s1.parentNode.removeChild(s1);
+				s.parentNode.removeChild(s);
 				delete w[fnName];
 			};
-			s1.async = 1;
-			s1.src = url;
-			s2.parentNode.insertBefore(s1, s2);
+			s.async = 1;
+			s.src = url;
+			$insert(s);
 		},
 		$date = function(s){
 			// http://www.evotech.net/blog/2007/07/javascript-date-object/
@@ -254,7 +255,12 @@ h1{
 		headlinesList = $('headlines-list'),
 		headlinesSource = 'http://feedstitch.com/cheeaun/connectionsmy.rss',
 		headlinesYQL = "select title,link from feed where url='" + headlinesSource + "' limit 10",
-		headlinesURL = yqlPath + 'q=' + encodeURIComponent(headlinesYQL) + '&callback=loadHeadlines';
+		headlinesURL = yqlPath + 'q=' + encodeURIComponent(headlinesYQL) + '&callback=loadHeadlines',
+		l = d.createElement('link');
+	
+	l.rel = 'stylesheet';
+	l.href = 'http://fonts.googleapis.com/css?family=Amaranth';
+	$insert(l);
 	
 	$script(eventsURL, 'loadEvents', function(q){
 		if (!q || !q.query || !q.query.count) return;
@@ -280,5 +286,6 @@ h1{
 		}
 		headlinesList.innerHTML = html;
 	});
+	
 }(window, document));
 </script>
