@@ -227,9 +227,9 @@ h1{
 <script>
 (function(w, d){
 	var $ = function(id){return d.getElementById(id)},
+		$h = d.head || d.getElementsByTagName('head')[0],
 		$insert = function(el){
-			var h = d.head || d.getElementsByTagName('head')[0];
-			h.insertBefore(el, h.firstChild);
+			$h.insertBefore(el, $h.firstChild);
 		},
 		$script = function(url, fnName, fn){
 			var s = d.createElement('script');
