@@ -264,8 +264,10 @@ h1{
 	
 	$script(eventsURL, 'loadEvents', function(q){
 		if (!q || !q.query || !q.query.count) return;
-		var html = '';
-		for (var i=0, item = q.query.results.items, l=item.length; i<l; i++){
+		var html = '',
+			item = q.query.results.items;
+		if (item.details) item = [item];
+		for (var i=0, l=item.length; i<l; i++){
 			var it = item[i],
 				link = (it.details.match(/http:\/\/[^\s]*/i) || [it.alternateLink || '#'])[0],
 				when = it.when,
@@ -279,8 +281,10 @@ h1{
 	
 	$script(headlinesURL, 'loadHeadlines', function(q){
 		if (!q || !q.query || !q.query.count) return;
-		var html = '';
-		for (var i=0, item = q.query.results.item, l=item.length; i<l; i++){
+		var html = '',
+			item = q.query.results.item;
+		if (item.title) item = [item];
+		for (var i=0, l=item.length; i<l; i++){
 			var it = item[i];
 			html += '<li><a href="' + it.link + '">' + it.title + '</a></li>';
 		}
