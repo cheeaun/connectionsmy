@@ -38,8 +38,9 @@ h1{
 }
 .col{
 	float: left;
-	width: 280px;
-	margin: 10px;
+	width: 24%;
+	max-width: 20em;
+	margin: 10px 0 10px 1%;
 	font-size: 90%;
 }
 .col section{
@@ -77,14 +78,37 @@ h1{
 	color: #546f8a;
 	margin-right: 4px;
 }
-@media screen and (max-width: 648px){
-	body{
-		padding: 0;
+@media (max-width: 1000px){
+	.col{
+		width: 32%;
 	}
+	aside.col{
+		clear: left;
+		float: none;
+		width: auto;
+		max-width: 100%;
+	}
+	aside.col p{
+		max-width: 40em;
+	}
+}
+@media (max-width: 640px){
 	.col{
 		float: none;
 		width: auto;
 		margin: 0;
+		max-width: 100%;
+	}
+}
+@media (max-width: 480px){
+	body{
+		padding: 0;
+	}
+	h1{
+		text-align: center;
+	}
+	section h1{
+		text-align: left;
 	}
 }
 </style>
@@ -97,6 +121,7 @@ h1{
 <h1>Events</h1>
 <ul id="events-list">
 </ul>
+<p><small>Retrieved from <a href="http://www.calendata.com/">Calendata</a></small>.</p>
 </section>
 
 <section>
@@ -207,6 +232,7 @@ h1{
 	<li><a href="http://www.cradle.com.my/">Cradle</a></li>
 	<li><a href="http://www.vic.org.my/">Virtuous Investment Circle</a></li>
 	<li><a href="http://www.mavcap.com/">Mavcap</a></li>
+	<li><a href="http://allstars.my/">AllStars!</a></li>
 </ul>
 </section>
 
@@ -263,8 +289,8 @@ h1{
 		},
 		yqlPath = 'http://query.yahooapis.com/v1/public/yql?format=json&_maxage=86400&',
 		eventsList = $('events-list'),
-		eventsSource = 'https://www.google.com/calendar/feeds/vjf62q7llp8mktsold1m5dmh9g%40group.calendar.google.com/public/full-noattendees?orderby=starttime&sortorder=a&futureevents=true&alt=jsonc',
-		eventsYQL = "select title,details,alternateLink, when from json where url='" + eventsSource + "' and itemPath='json.data.items' limit 5",
+		eventsSource = 'https://www.google.com/calendar/feeds/calendata%40gmail.com/public/full-noattendees?orderby=starttime&sortorder=a&futureevents=true&max-results=5&alt=jsonc',
+		eventsYQL = "select title,details,alternateLink, when from json where url='" + eventsSource + "' and itemPath='json.data.items'",
 		eventsURL = yqlPath + 'q=' + encodeURIComponent(eventsYQL) + '&callback=loadEvents',
 		headlinesList = $('headlines-list'),
 		headlinesSource = 'http://feedstitch.com/cheeaun/connectionsmy.rss',
@@ -288,7 +314,7 @@ h1{
 				start = $date(when.start).toDateString(),
 				end = $date(when.end).toDateString(),
 				date = start + ((start != end) ? ' - ' + end : '');
-			html += '<li><a href="' + link + '"><time>' + date + '</time> ' + it.title + '</a></li>';
+			html += '<li><a href="' + link + '"><time>' + date + '</time> ' + it.title.replace(/\s([^\s<]{0,10})\s*$/,'&nbsp;$1') + '</a></li>';
 		}
 		eventsList.innerHTML = html;
 	});
