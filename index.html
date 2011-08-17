@@ -283,9 +283,9 @@ h1{
 			$insert(s);
 		},
 		$date = function(s){
-			// http://www.evotech.net/blog/2007/07/javascript-date-object/
-			var d = s.replace(/\D/g, ' ').split(' ');
-			return new Date(d[0], d[1]-1, d[2], d[3], d[4], d[5]);
+			var d = new Date(s);
+			if (Object.prototype.toString.call(d) !== '[object Date]' || isNaN(+d)) d = new Date(s.replace(/-/g, '/'));
+			return d;
 		},
 		yqlPath = 'http://query.yahooapis.com/v1/public/yql?format=json&_maxage=86400&',
 		eventsList = $('events-list'),
