@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<title>404</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+html { height: 100% }
+body { height: 100%; margin: 0; padding: 0 }
+#map_canvas { height: 100%; opacity: .404 }
+h1{
+	font-family: sans-serif;
+	font-size: 20px;
+	text-align: center;
+	width: 100%;
+	position: absolute;
+	top: 45%;
+	pointer-events: none;
+	text-shadow: 0 0 10px #fff;
+	-webkit-text-size-adjust: none;
+}
+</style>
+<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDpk0BS7iLdbn5U545tiIN12k1OCgj2cc4&sensor=false"></script>
+<script>
+function initialize(){
+	var map = new google.maps.Map(document.getElementById('map_canvas'), {
+		zoom: 6,
+		center: new google.maps.LatLng(4.210484, 101.97576600000002),
+		mapTypeId: google.maps.MapTypeId.ROADMAP,
+		disableDefaultUI: true,
+		draggable: false,
+		disableDoubleClickZoom: true,
+		keyboardShortcuts: false,
+		scrollwheel: false
+	});
+	var refit = window.onresize = function(){
+		map.fitBounds(new google.maps.LatLngBounds(new google.maps.LatLng(0.8538209999999999, 99.64057279999997), new google.maps.LatLng(7.363468, 119.26581190000002)));
+	};
+	refit();
+}
+</script>
+<body onload="initialize()">
+  <div id="map_canvas" style="width:100%; height:100%"></div>
+  <h1>Page not found. But you found Malaysia on the map.</h1>
+</body>
