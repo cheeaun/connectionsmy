@@ -266,9 +266,9 @@ h1{
 		$script = function(url, fnName, fn){
 			var s = d.createElement('script');
 			w[fnName] = function(){
-				fn.apply(this, arguments);
 				s.parentNode.removeChild(s);
 				delete w[fnName];
+				fn.apply(this, arguments);
 			};
 			s.async = 1;
 			s.src = url;
@@ -295,34 +295,46 @@ h1{
 	l.href = 'http://fonts.googleapis.com/css?family=Amaranth';
 	$insert(l);
 	
-	$script(eventsURL, 'loadEvents', function(q){
-		if (!q || !q.query || !q.query.count) return;
-		var html = '',
-			item = q.query.results.items;
-		if (item.details) item = [item];
-		for (var i=0, l=item.length; i<l; i++){
-			var it = item[i],
-				link = (it.details.match(/http:\/\/[^\s]*/i) || [it.alternateLink || '#'])[0],
-				when = it.when,
-				start = $date(when.start).toDateString(),
-				end = $date(when.end).toDateString(),
-				date = start + ((start != end) ? ' - ' + end : '');
-			html += '<li><a href="' + link + '"><time>' + date + '</time> ' + it.title.replace(/\s([^\s<]{0,10})\s*$/,'&nbsp;$1') + '</a></li>';
-		}
-		eventsList.innerHTML = html;
-	});
+	var lEvents = function(url, cb){
+		$script(url, cb, function(q){
+			if (!q || !q.query || !q.query.count){
+				lEvents(url + Math.round(Math.random()*10), cb);
+				return;
+			}
+			var html = '',
+				item = q.query.results.items;
+			if (item.details) item = [item];
+			for (var i=0, l=item.length; i<l; i++){
+				var it = item[i],
+					link = (it.details.match(/http:\/\/[^\s]*/i) || [it.alternateLink || '#'])[0],
+					when = it.when,
+					start = $date(when.start).toDateString(),
+					end = $date(when.end).toDateString(),
+					date = start + ((start != end) ? ' - ' + end : '');
+				html += '<li><a href="' + link + '"><time>' + date + '</time> ' + it.title.replace(/\s([^\s<]{0,10})\s*$/,'&nbsp;$1') + '</a></li>';
+			}
+			eventsList.innerHTML = html;
+		});
+	};
+	lEvents(eventsURL, 'loadEvents');
 	
-	$script(headlinesURL, 'loadHeadlines', function(q){
-		if (!q || !q.query || !q.query.count) return;
-		var html = '',
-			item = q.query.results.item;
-		if (item.title) item = [item];
-		for (var i=0, l=item.length; i<l; i++){
-			var it = item[i];
-			html += '<li><a href="' + it.link + '">' + it.title + '</a></li>';
-		}
-		headlinesList.innerHTML = html;
-	});
+	var lHeadlines = function(url, cb){
+		$script(url, cb, function(q){
+			if (!q || !q.query || !q.query.count){
+				lHeadlines(url + Math.round(Math.random()*10), cb);
+				return;
+			}
+			var html = '',
+				item = q.query.results.item;
+			if (item.title) item = [item];
+			for (var i=0, l=item.length; i<l; i++){
+				var it = item[i];
+				html += '<li><a href="' + it.link + '">' + it.title + '</a></li>';
+			}
+			headlinesList.innerHTML = html;
+		});
+	};
+	lHeadlines(headlinesURL, 'loadHeadlines');
 	
 }(window, document));
 </script>
