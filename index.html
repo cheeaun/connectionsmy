@@ -205,7 +205,7 @@ h1{
 	<li><a href="http://www.hackerspace.my/">Hackerspace KL</a></li>
 	<li><a href="http://www.codeandroid.my/">CodeAndroid Malaysia</a></li>
 	<li><a href="http://smckl.org/">Social Media Club KL</a></li>
-	<li><a href="http://www.makeweekend.com/">Makeweekend</a></li>
+	<li><a href="http://weekend.my">Weekend Movement</a></li>
 	<li><a href="http://www.gtugkl.org/">GTUG KL</a></li>
 	<li><a href="http://groups.google.com/group/malaysia-rb">Malaysia Ruby Brigade</a></li>
 	<li><a href="http://www.technopreneur.my">Technopreneurs Association of Malaysia</a></li>
@@ -213,6 +213,7 @@ h1{
 	<li><a href="http://jug.my/">jug.my</a></li>
 	<li><a href="http://python.my/">Malaysia Python User Group</a></li>
 	<li><a href="http://hack.weekend.my/">Hackweekend</a></li>
+	<li><a href="https://www.facebook.com/groups/248687618521952/">WCKL Co-Working Heroes</a></li>
 </ul>
 </section>
 
@@ -236,6 +237,8 @@ h1{
 	<li><a href="http://www.vic.org.my/">Virtuous Investment Circle</a></li>
 	<li><a href="http://www.mavcap.com/">Mavcap</a></li>
 	<li><a href="http://allstars.my/">AllStars!</a></li>
+	<li><a href="http://ch-investments.com.sg/">Crystal Horse Investments</a></li>
+
 </ul>
 </section>
 </div>
@@ -257,7 +260,7 @@ h1{
 	var ga = d.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
 	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
 	var s = d.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-	
+
 	var $ = function(id){return d.getElementById(id)},
 		$h = d.head || d.getElementsByTagName('head')[0],
 		$insert = function(el){
@@ -290,11 +293,11 @@ h1{
 		headlinesYQL = "select title,link from feed where url='" + headlinesSource + "' limit 10",
 		headlinesURL = yqlPath + 'q=' + encodeURIComponent(headlinesYQL) + '&callback=loadHeadlines&_=' + cacheBust,
 		l = d.createElement('link');
-	
+
 	l.rel = 'stylesheet';
 	l.href = 'http://fonts.googleapis.com/css?family=Amaranth';
 	$insert(l);
-	
+
 	var lEvents = function(url, cb){
 		$script(url, cb, function(q){
 			if (!q || !q.query || !q.query.count){
@@ -317,7 +320,7 @@ h1{
 		});
 	};
 	lEvents(eventsURL, 'loadEvents');
-	
+
 	var lHeadlines = function(url, cb){
 		$script(url, cb, function(q){
 			if (!q || !q.query || !q.query.count){
@@ -335,6 +338,6 @@ h1{
 		});
 	};
 	lHeadlines(headlinesURL, 'loadHeadlines');
-	
+
 }(window, document));
 </script>
