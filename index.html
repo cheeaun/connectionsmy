@@ -3,274 +3,250 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-body{
-	font-family: 'Amaranth', 'Trebuchet MS', arial, serif;
-	color: #999;
-	background: #f9f9f9 url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAJklEQVQImU3IIQ4AMAwDsf7/seFGGZgqFRzwDbol6VzgjwU6F+gDP6I+HYt8cnMAAAAASUVORK5CYII=);
-	margin: 0;
-	padding: 1em;
-	text-shadow: 0 1px #fff;
-	border-top: 4px solid #f0f0f0;
-}
-*{
-	-webkit-text-size-adjust: 100%;
-}
-a{
-	color: #7094B8;
-	text-decoration: none;
-	-webkit-transition: all .3s;
-	-moz-transition: all .3s;
-	-o-transition: all .3s;
-	-ms-transition: all .3s;
-	transition: all .3s;
-}
-a:hover{
-	color: #546f8a;
-	background-color: rgba(255,255,255,.4);
-	text-decoration: underline;
-}
-h1{
-	color: #546f8a;
-	margin: 0 0 10px;
-	padding: 0 10px;
-	text-transform: lowercase;
-	font-weight: normal;
-}
-.col{
-	float: left;
-	width: 24%;
-	max-width: 20em;
-	margin: 10px 0 10px 1%;
-	font-size: 90%;
-}
-.col section{
-	padding-bottom: 1px;
-	margin-bottom: 1em;
-}
-.col h1{
-	font-size: 120%;
-	margin: 0;
-	padding: 5px 10px;
-	color: #71b881;
-	background-color: rgba(255,255,255,.75);
-	border-bottom: 2px solid #f0f0f0;
-}
-.col ul{
-	margin: 0;
-	padding: 0;
-	list-style: none;
-}
-.col ul li{
-	display: inline;
-}
-.col ul a{
-	display: block;
-	padding: 5px 10px;
-}
-.col ul a:hover{
-	padding: 5px 5px 5px 15px;
-}
-.col p{
-	padding: 0;
-	margin: 10px;
-}
-#events-list a time{
-	color: #546f8a;
-	margin-right: 4px;
-}
-@media (max-width: 1000px){
-	.col{
-		width: 32%;
-	}
-	aside.col{
-		clear: left;
-		float: none;
-		width: auto;
-		max-width: 100%;
-	}
-	aside.col p{
-		max-width: 40em;
-	}
-}
-@media (max-width: 640px){
-	.col{
-		float: none;
-		width: auto;
-		margin: 0;
-		max-width: 100%;
-	}
-}
-@media (max-width: 480px){
+	@import url(//fonts.googleapis.com/css?family=Amaranth);
+
 	body{
-		padding: 0;
+		font-family: 'Helvetica Neue', Helvetica, Arial, serif;
+		color: #666;
+		background: #fff;
+		margin: 0;
+		padding: 2em;
+		font-size: 12px;
+		line-height: 1.6em;
+		cursor: default;
+	}
+	*{
+		-webkit-text-size-adjust: 100%;
+	}
+	a{
+		color: #3D525E;
+		text-decoration: none;
+		-webkit-transition: all .3s;
+		-moz-transition: all .3s;
+		-o-transition: all .3s;
+		-ms-transition: all .3s;
+		transition: all .3s;
+	}
+	a:hover{
+		color: #D32626;
+		text-decoration: underline;
 	}
 	h1{
-		text-align: center;
+		font-family: Amaranth, 'Trebuchet MS', Arial, sans-serif;
+		color: #D32626;
+		margin: 0 0 .5em;
+		padding: 0;
+		font-size: 40px;
+		text-transform: lowercase;
+		font-weight: normal;
+		letter-spacing: -1px;
 	}
-	section h1{
-		text-align: left;
+	.col{
+		float: left;
+		width: 30%;
+		max-width: 25em;
+		margin: 10px 3% 10px 0;
 	}
-}
+	.col section{
+		padding-bottom: 1px;
+		margin-bottom: 1em;
+	}
+	.col h1{
+		font-size: 20px;
+		letter-spacing: -1px;
+		margin: 0;
+		padding: 8px 0;
+		background-color: rgba(255,255,255,.75);
+		border-bottom: 1px solid #ccc;
+	}
+	.col ul{
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+	.col ul li{
+		display: inline;
+	}
+	.col ul a{
+		display: block;
+		padding: 3px 0;
+	}
+	.col p{
+		padding: 0;
+		margin: 10px 0;
+	}
+	#events-list a time{
+		opacity: .7;
+		margin-right: 4px;
+	}
+	@media (max-width: 680px){
+		.col{
+			float: none;
+			width: auto;
+			margin: 0;
+			max-width: 100%;
+		}
+	}
+	@media (max-width: 480px){
+		body{
+			padding: 1em;
+		}
+	}
 </style>
 <header>
 	<h1>connections.my</h1>
 </header>
 
 <div class="col">
-<section>
-<h1>Events</h1>
-<ul id="events-list">
-</ul>
-<p><small>Retrieved from <a href="http://www.calendata.com/">Calendata</a></small>.</p>
-</section>
+	<section>
+		<h1>About</h1>
+		<p>This is a collaborative effort to aggregate all things tech in Malaysia, heavily inspired by <a href="http://connections.sg/">connections.sg</a>. Also for the purpose of promoting synergy, connections &amp; community spirit.</p>
+		<p>Curated &amp; maintained by <a href="http://twitter.com/cheeaun">@cheeaun</a>. <a href="https://docs.google.com/document/d/1IqH1yfNiIU_JrWrB2lPf7Ow1Z0rRaHSJNIxo-VzeXPk/edit?hl=en">Feedback</a> &amp; <a href="https://github.com/cheeaun/connectionsmy">contributions</a> are welcomed.</p>
+	</section>
 
-<section>
-<h1>Jobs</h1>
-<ul>
-	<li><a href="http://jobs.triplepoint.asia/jobs">Triplepoint</a></li>
-</ul>
-</section>
+	<section>
+		<h1>Events</h1>
+		<ul id="events-list">
+		</ul>
+		<p><small>Retrieved from <a href="http://www.calendata.com/">Calendata</a></small>.</p>
+	</section>
 
-<section>
-<h1>Blogs</h1>
-<ul>
-	<li><a href="http://www.entrepreneurs.my/">Malaysia Entrepreneurs</a></li>
-	<li><a href="http://www.greyreview.com/">Grey Review</a></li>
-	<li><a href="http://amanz.my/">Amanz.my</a></li>
-</ul>
-</section>
+	<section>
+		<h1>Spaces</h1>
+		<ul>
+			<li><a href="http://www.hackerspace.my/">Hackerspace KL</a></li>
+			<li><a href="http://www.fluentspace.my/">Fluent Space</a></li>
+			<li><a href="http://www.paperandtoast.com/">Paper + Toast</a></li>
+			<li><a href="http://www.altspacekl.com/">Alt.space</a></li>
+			<li><a href="http://nook.my/">Nook</a></li>
+			<li><a href="http://www.urbanvillage.my/">Urban Village</a></li>
+		</ul>
+	</section>
+
+	<section>
+		<h1>Jobs</h1>
+		<ul>
+			<li><a href="http://jobs.triplepoint.asia/jobs">Triplepoint</a></li>
+		</ul>
+	</section>
+
+	<section>
+		<h1>Blogs</h1>
+		<ul>
+			<li><a href="http://www.entrepreneurs.my/">Malaysia Entrepreneurs</a></li>
+			<li><a href="http://www.greyreview.com/">Grey Review</a></li>
+			<li><a href="http://amanz.my/">Amanz.my</a></li>
+		</ul>
+	</section>
 </div>
 
 <div class="col people">
-<section>
-<h1>Influencers</h1>
-<ul>
-	<li><a href="http://entrepreneurs.my/">Daniel Cerventus</a></li>
-	<li><a href="http://www.greyreview.com/">Lim Ying-Hui</a></li>
-	<li><a href="http://vernonchan.com/">Vernon Chan</a></li>
-	<li><a href="http://www.bytebot.net/">Colin Charles</a></li>
-	<li><a href="http://ditesh.gathani.org/">Ditesh Gathani</a></li>
-	<li><a href="http://yoonkit.blogspot.com/">Yong Yoon Kit</a></li>
-	<li><a href="http://about.me/ikhwan.nazri">Ikhwan Nazri</a></li>
-	<li><a href="http://aizatto.com/">Aizat Faiz</a></li>
-	<li><a href="http://www.shaolintiger.com/">Gareth Davies</a></li>
-</ul>
-</section>
+	<section>
+		<h1>Influencers</h1>
+		<ul>
+			<li><a href="http://entrepreneurs.my/">Daniel Cerventus</a></li>
+			<li><a href="http://www.greyreview.com/">Lim Ying-Hui</a></li>
+			<li><a href="http://vernonchan.com/">Vernon Chan</a></li>
+			<li><a href="http://www.bytebot.net/">Colin Charles</a></li>
+			<li><a href="http://ditesh.gathani.org/">Ditesh Gathani</a></li>
+			<li><a href="http://yoonkit.blogspot.com/">Yong Yoon Kit</a></li>
+			<li><a href="http://about.me/ikhwan.nazri">Ikhwan Nazri</a></li>
+			<li><a href="http://aizatto.com/">Aizat Faiz</a></li>
+			<li><a href="http://www.shaolintiger.com/">Gareth Davies</a></li>
+		</ul>
+	</section>
 
-<section>
-<h1>Connectors</h1>
-<ul>
-	<li><a href="http://mikefoong.com/">Mike Foong</a></li>
-	<li><a href="http://entrepreneurs.my/">Daniel Cerventus</a></li>
-	<li><a href="http://lightyoruichi.com/">Harinder Singh</a></li>
-</ul>
-</section>
+	<section>
+		<h1>Connectors</h1>
+		<ul>
+			<li><a href="http://mikefoong.com/">Mike Foong</a></li>
+			<li><a href="http://entrepreneurs.my/">Daniel Cerventus</a></li>
+			<li><a href="http://lightyoruichi.com/">Harinder Singh</a></li>
+		</ul>
+	</section>
 
-<section>
-<h1>Developers</h1>
-<ul>
-	<li><a href="http://blog.bitfluent.com/">Kamal Fariz</a></li>
-	<li><a href="http://aizatto.com/">Aizat Faiz</a></li>
-	<li><a href="http://ar.zu.my/">Arzumy</a></li>
-	<li><a href="http://www.buyot.org/">Nazrul Kamaruddin</a></li>
-	<li><a href="http://www.bernie-eng.com/">Bernie Eng</a></li>
-	<li><a href="http://www.kriskhaira.com/">Kris Khaira</a></li>
-	<li><a href="http://ditesh.gathani.org/">Ditesh Gathani</a></li>
-	<li><a href="http://shuj.in/">Jinny Wong</a></li>
-	<li><a href="http://zerply.com/claytonnarcis">Clayton Narcis</a></li>
-</ul>
-</section>
+	<section>
+		<h1>Developers</h1>
+		<ul>
+			<li><a href="http://blog.bitfluent.com/">Kamal Fariz</a></li>
+			<li><a href="http://aizatto.com/">Aizat Faiz</a></li>
+			<li><a href="http://ar.zu.my/">Arzumy</a></li>
+			<li><a href="http://www.buyot.org/">Nazrul Kamaruddin</a></li>
+			<li><a href="http://www.bernie-eng.com/">Bernie Eng</a></li>
+			<li><a href="http://www.kriskhaira.com/">Kris Khaira</a></li>
+			<li><a href="http://ditesh.gathani.org/">Ditesh Gathani</a></li>
+			<li><a href="http://shuj.in/">Jinny Wong</a></li>
+			<li><a href="http://zerply.com/claytonnarcis">Clayton Narcis</a></li>
+		</ul>
+	</section>
 
-<section>
-<h1>Designers</h1>
-<ul>
-	<li><a href="http://kailoon.com/">Kai Loon</a></li>
-	<li><a href="http://about.me/ngeow">Ngeow Wu Han</a></li>
-	<li><a href="http://www.dream-design.net/">Bel Koo</a></li>
-</ul>
-</section>
+	<section>
+		<h1>Designers</h1>
+		<ul>
+			<li><a href="http://kailoon.com/">Kai Loon</a></li>
+			<li><a href="http://about.me/ngeow">Ngeow Wu Han</a></li>
+			<li><a href="http://www.dream-design.net/">Bel Koo</a></li>
+		</ul>
+	</section>
 </div>
 
 <div class="col">
-<section>
-<h1>Groups, Lists, Meetups &amp; Events</h1>
-<ul>
-	<li><a href="http://webcamp.my/">WebCamp KL</a></li>
-	<li><a href="http://mycocoaheads.tumblr.com/">CocoaHeads Malaysia</a></li>
-	<li><a href="http://www.hackerspace.my/">Hackerspace KL</a></li>
-	<li><a href="http://www.codeandroid.my/">CodeAndroid Malaysia</a></li>
-	<li><a href="http://smckl.org/">Social Media Club KL</a></li>
-	<li><a href="http://weekend.my">Weekend Movement</a></li>
-	<li><a href="http://www.gtugkl.org/">GTUG KL</a></li>
-	<li><a href="http://groups.google.com/group/malaysia-rb">Malaysia Ruby Brigade</a></li>
-	<li><a href="http://www.technopreneur.my">Technopreneurs Association of Malaysia</a></li>
-	<li><a href="http://www.php.net.my/">PHP Meetup</a></li>
-	<li><a href="http://jug.my/">jug.my</a></li>
+	<section>
+		<h1>Groups, Lists, Meetups &amp; Events</h1>
+		<ul>
+			<li><a href="http://webcamp.my/">WebCamp KL</a></li>
+			<li><a href="http://mycocoaheads.tumblr.com/">CocoaHeads Malaysia</a></li>
+			<li><a href="http://www.hackerspace.my/">Hackerspace KL</a></li>
+			<li><a href="http://www.codeandroid.my/">CodeAndroid Malaysia</a></li>
+			<li><a href="http://smckl.org/">Social Media Club KL</a></li>
+			<li><a href="http://weekend.my">Weekend Movement</a></li>
+			<li><a href="http://www.gtugkl.org/">GTUG KL</a></li>
+			<li><a href="http://groups.google.com/group/malaysia-rb">Malaysia Ruby Brigade</a></li>
+			<li><a href="http://www.technopreneur.my">Technopreneurs Association of Malaysia</a></li>
+			<li><a href="http://www.php.net.my/">PHP Meetup</a></li>
+			<li><a href="http://jug.my/">jug.my</a></li>
 	<li><a href="http://https://www.facebook.com/groups/python.malaysia/">Malaysia Python User Group</a></li>
-	<li><a href="http://hack.weekend.my/">Hackweekend</a></li>
-	<li><a href="https://www.facebook.com/groups/248687618521952/">WCKL Co-Working Heroes</a></li>
-	<li><a href="https://sea.dosomething.gd">Social Enterprise Alliance Malaysia</a></li>
-	<li><a href="http://www.facebook.com/opencoffeeclubkl">WebCampKL Open Coffee Club</a></li>
-	<li><a href="http://www.facebook.com/groups/ixdakl/">IxDA Kuala Lumpur</a></li>
-	<li><a href="http://www.facebook.com/groups/klmug/">Kuala Lumpur Mongo User Group</a></li>
-	<li><a href="http://www.facebook.com/groups/drupalmy/">Drupal Malaysia</a></li>
+			<li><a href="http://hack.weekend.my/">Hackweekend</a></li>
+			<li><a href="https://www.facebook.com/groups/248687618521952/">WCKL Co-Working Heroes</a></li>
+			<li><a href="https://sea.dosomething.gd">Social Enterprise Alliance Malaysia</a></li>
+			<li><a href="http://www.facebook.com/opencoffeeclubkl">WebCampKL Open Coffee Club</a></li>
+			<li><a href="http://www.facebook.com/groups/ixdakl/">IxDA Kuala Lumpur</a></li>
+			<li><a href="http://www.facebook.com/groups/klmug/">Kuala Lumpur Mongo User Group</a></li>
+			<li><a href="http://www.facebook.com/groups/drupalmy/">Drupal Malaysia</a></li>
 	<li><a href="https://www.facebook.com/groups/bigdatamy/">Big Data Malaysia</a></li>
-</ul>
-</section>
+		</ul>
+	</section>
 
-<section>
-<h1>Spaces</h1>
-<ul>
-	<li><a href="http://www.hackerspace.my/">Hackerspace KL</a></li>
-	<li><a href="http://www.fluentspace.my/">Fluent Space</a></li>
-	<li><a href="http://www.paperandtoast.com/">Paper + Toast</a></li>
-	<li><a href="http://www.altspacekl.com/">Alt.space</a></li>
-	<li><a href="http://nook.my/">Nook</a></li>
-	<li><a href="http://www.urbanvillage.my/">Urban Village</a></li>
-</ul>
-</section>
-
-<section>
-<h1>Incubators &amp; Investors</h1>
-<ul>
-	<li><a href="http://greyattic.com/">Grey Attic</a></li>
-	<li><a href="http://incubator.com.my/">MAD Incubator</a></li>
-	<li><a href="http://www.teakcapital.com.my/">Teak Capital</a></li>
-	<li><a href="http://www.cradle.com.my/">Cradle</a></li>
-	<li><a href="http://www.vic.org.my/">Virtuous Investment Circle</a></li>
-	<li><a href="http://www.mavcap.com/">Mavcap</a></li>
-	<li><a href="http://allstars.my/">AllStars!</a></li>
-	<li><a href="http://ch-investments.com.sg/">Crystal Horse Investments</a></li>
-	<li><a href="http://tandemfund.org">Tandem Fund</a></li>
-	<li><a href="http://www.mdv.com.my/v2/">Malaysia Debt Ventures</a></li>
-	<li><a href="http://www.mtdc.com.my/">Malaysia Technology Development Corporation</a></li>
-	<li><a href="http://www.modalperdana.com/">Kumpulan Modal Perdana</a></li>
-	<li><a href="http://hackrbackr.org/">hackr|backr</a></li>
-	<li><a href="http://www.rocket-internet.my">Rocket Internet</a></li>
-	<li><a href="http://www.ascensionlab.com/">Ascension Lab</a></li>
-</ul>
-</section>
+	<section>
+		<h1>Incubators &amp; Investors</h1>
+		<ul>
+			<li><a href="http://greyattic.com/">Grey Attic</a></li>
+			<li><a href="http://incubator.com.my/">MAD Incubator</a></li>
+			<li><a href="http://www.teakcapital.com.my/">Teak Capital</a></li>
+			<li><a href="http://www.cradle.com.my/">Cradle</a></li>
+			<li><a href="http://www.vic.org.my/">Virtuous Investment Circle</a></li>
+			<li><a href="http://www.mavcap.com/">Mavcap</a></li>
+			<li><a href="http://allstars.my/">AllStars!</a></li>
+			<li><a href="http://ch-investments.com.sg/">Crystal Horse Investments</a></li>
+			<li><a href="http://tandemfund.org">Tandem Fund</a></li>
+			<li><a href="http://www.mdv.com.my/v2/">Malaysia Debt Ventures</a></li>
+			<li><a href="http://www.mtdc.com.my/">Malaysia Technology Development Corporation</a></li>
+			<li><a href="http://www.modalperdana.com/">Kumpulan Modal Perdana</a></li>
+			<li><a href="http://hackrbackr.org/">hackr|backr</a></li>
+			<li><a href="http://www.rocket-internet.my">Rocket Internet</a></li>
+			<li><a href="http://www.ascensionlab.com/">Ascension Lab</a></li>
+		</ul>
+	</section>
 </div>
 
-<aside class="col">
-<section>
-<h1>About</h1>
-<p>This is a collaborative effort to aggregate all things tech in Malaysia, heavily inspired by <a href="http://connections.sg/">connections.sg</a>. Also for the purpose of promoting synergy, connections &amp; community spirit.</p>
-<p>Curated &amp; maintained by <a href="http://twitter.com/cheeaun">Chee Aun</a>. <a href="https://docs.google.com/document/d/1IqH1yfNiIU_JrWrB2lPf7Ow1Z0rRaHSJNIxo-VzeXPk/edit?hl=en">Feedback</a> &amp; <a href="https://github.com/cheeaun/connectionsmy">contributions</a> are welcomed.</p>
-<p><a href="http://www.google.com/webfonts/family?family=Amaranth">Amaranth</a> fonted.</p>
-</section>
-</aside>
-
-<a href="https://github.com/cheeaun/connectionsmy"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
-
 <script>
-(function(w, d){
-	w._gaq = [['_setAccount', 'UA-24191027-1'], ['_trackPageview'], ['_trackPageLoadTime']];
-	var ga = d.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-	var s = d.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	(function(w, d){
+		w._gaq = [['_setAccount', 'UA-24191027-1'], ['_trackPageview'], ['_trackPageLoadTime']];
+		var ga = d.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = d.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 
-	var $ = function(id){return d.getElementById(id)},
+		var $ = function(id){return d.getElementById(id)},
 		$h = d.head || d.getElementsByTagName('head')[0],
 		$insert = function(el){
 			$h.insertBefore(el, $h.firstChild);
@@ -299,32 +275,32 @@ h1{
 		eventsURL = yqlPath + 'q=' + encodeURIComponent(eventsYQL) + '&callback=loadEvents&_=' + cacheBust,
 		l = d.createElement('link');
 
-	l.rel = 'stylesheet';
-	l.href = 'http://fonts.googleapis.com/css?family=Amaranth';
-	$insert(l);
+		l.rel = 'stylesheet';
+		l.href = 'http://fonts.googleapis.com/css?family=Amaranth';
+		$insert(l);
 
-	var lEvents = function(url, cb){
-		$script(url, cb, function(q){
-			if (!q || !q.query || !q.query.count){
-				lEvents(url + Math.round(Math.random()*10), cb);
-				return;
-			}
-			var html = '',
+		var lEvents = function(url, cb){
+			$script(url, cb, function(q){
+				if (!q || !q.query || !q.query.count){
+					lEvents(url + Math.round(Math.random()*10), cb);
+					return;
+				}
+				var html = '',
 				item = q.query.results.items;
-			if (item.details) item = [item];
-			for (var i=0, l=item.length; i<l; i++){
-				var it = item[i],
+				if (item.details) item = [item];
+				for (var i=0, l=item.length; i<l; i++){
+					var it = item[i],
 					link = (it.details.match(/http:\/\/[^\s]*/i) || [it.alternateLink || '#'])[0],
 					when = it.when,
 					start = $date(when.start).toDateString(),
 					end = $date(when.end).toDateString(),
 					date = start + ((start != end) ? ' - ' + end : '');
-				html += '<li><a href="' + link + '"><time>' + date + '</time> ' + it.title.replace(/\s([^\s<]{0,10})\s*$/,'&nbsp;$1') + '</a></li>';
-			}
-			eventsList.innerHTML = html;
-		});
-	};
-	lEvents(eventsURL, 'loadEvents');
+					html += '<li><a href="' + link + '"><time>' + date + '</time> ' + it.title.replace(/\s([^\s<]{0,10})\s*$/,'&nbsp;$1') + '</a></li>';
+				}
+				eventsList.innerHTML = html;
+			});
+		};
+		lEvents(eventsURL, 'loadEvents');
 
-}(window, document));
+	}(window, document));
 </script>
