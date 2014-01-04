@@ -89,7 +89,7 @@
 	}
 	@media (max-width: 480px){
 		body{
-			padding: 1em;
+			padding: 2em 1em;
 		}
 	}
 </style>
@@ -272,12 +272,7 @@
 		eventsList = $('events-list'),
 		eventsSource = 'https://www.google.com/calendar/feeds/calendata%40gmail.com/public/full-noattendees?orderby=starttime&sortorder=a&futureevents=true&max-results=5&alt=jsonc',
 		eventsYQL = "select title,details,alternateLink, when from json where url='" + eventsSource + "' and itemPath='json.data.items'",
-		eventsURL = yqlPath + 'q=' + encodeURIComponent(eventsYQL) + '&callback=loadEvents&_=' + cacheBust,
-		l = d.createElement('link');
-
-		l.rel = 'stylesheet';
-		l.href = 'http://fonts.googleapis.com/css?family=Amaranth';
-		$insert(l);
+		eventsURL = yqlPath + 'q=' + encodeURIComponent(eventsYQL) + '&callback=loadEvents&_=' + cacheBust;
 
 		var lEvents = function(url, cb){
 			$script(url, cb, function(q){
