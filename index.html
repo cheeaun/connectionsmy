@@ -132,12 +132,6 @@ h1{
 </section>
 
 <section>
-<h1>Headlines</h1>
-<ul id="headlines-list">
-</ul>
-</section>
-
-<section>
 <h1>Blogs</h1>
 <ul>
 	<li><a href="http://www.entrepreneurs.my/">Malaysia Entrepreneurs</a></li>
@@ -303,10 +297,6 @@ h1{
 		eventsSource = 'https://www.google.com/calendar/feeds/calendata%40gmail.com/public/full-noattendees?orderby=starttime&sortorder=a&futureevents=true&max-results=5&alt=jsonc',
 		eventsYQL = "select title,details,alternateLink, when from json where url='" + eventsSource + "' and itemPath='json.data.items'",
 		eventsURL = yqlPath + 'q=' + encodeURIComponent(eventsYQL) + '&callback=loadEvents&_=' + cacheBust,
-		headlinesList = $('headlines-list'),
-		headlinesSource = 'http://feedstitch.com/cheeaun/connectionsmy.rss',
-		headlinesYQL = "select title,link from feed where url='" + headlinesSource + "' limit 10",
-		headlinesURL = yqlPath + 'q=' + encodeURIComponent(headlinesYQL) + '&callback=loadHeadlines&_=' + cacheBust,
 		l = d.createElement('link');
 
 	l.rel = 'stylesheet';
@@ -335,24 +325,6 @@ h1{
 		});
 	};
 	lEvents(eventsURL, 'loadEvents');
-
-	var lHeadlines = function(url, cb){
-		$script(url, cb, function(q){
-			if (!q || !q.query || !q.query.count){
-				lHeadlines(url + Math.round(Math.random()*10), cb);
-				return;
-			}
-			var html = '',
-				item = q.query.results.item;
-			if (item.title) item = [item];
-			for (var i=0, l=item.length; i<l; i++){
-				var it = item[i];
-				html += '<li><a href="' + it.link + '">' + it.title + '</a></li>';
-			}
-			headlinesList.innerHTML = html;
-		});
-	};
-	lHeadlines(headlinesURL, 'loadHeadlines');
 
 }(window, document));
 </script>
